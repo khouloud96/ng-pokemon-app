@@ -10,9 +10,14 @@ import { PokemonService } from "./pokemon.service";
 import { EditPokemonComponent } from "./edit-pokemon/edit-pokemon.component";
 import { PokemonFormComponent } from "./pokemon-form/pokemon-form.component";
 import { AddPokemonComponent } from "./add-pokemon/add-pokemon.component";
+import { AuthGuard } from "../auth.guard";
 
 export const pokemonRoutes: Routes = [
-  { path: "edit/pokemon/:id", component: EditPokemonComponent },
+  {
+    path: "edit/pokemon/:id",
+    component: EditPokemonComponent,
+    canActivate: [AuthGuard],
+  },
   { path: "pokemon/add", component: AddPokemonComponent },
   { path: "pokemons", component: ListPokemonComponent }, // accessible via "/pokemons"
   { path: "pokemon/:id", component: DetailPokemonComponent }, // accessible via "/pokemon/:id"
