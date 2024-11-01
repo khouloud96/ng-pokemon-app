@@ -1,42 +1,48 @@
-<div class="row">
-  <div class="col s12 m4 offset-m4">
-    <div class="card hoverable">
-      <div class="card-content center">
-        <span class="card-title">Page de connexion</span>
-        <p>
-          <em>{{ message }}</em>
-        </p>
-      </div>
-      <form #loginForm="ngForm">
-        <div>
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            [(ngModel)]="name"
-            name="name"
-            required
-          />
+<div class="container mt-5">
+  <div class="row">
+    <div class="col s12 m4 offset-m4">
+      <div class="card hoverable">
+        <div class="card-content center">
+          <span class="card-title">Page de connexion</span>
+          <p>
+            <em>{{ message }}</em>
+          </p>
         </div>
-        <div>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            [(ngModel)]="password"
-            name="password"
-            required
-          />
+        <form #loginForm="ngForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              [(ngModel)]="name"
+              name="name"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control"
+              required
+            />
+          </div>
+        </form>
+        <div class="card-action center">
+          <a
+            (click)="login()"
+            class="waves-effect waves-light btn"
+            *ngIf="!authService.isLoggedIn"
+            >Se connecter</a
+          >
+          <a (click)="logout()" *ngIf="authService.isLoggedIn"
+            >Se déconnecter</a
+          >
         </div>
-      </form>
-      <div class="card-action center">
-        <a
-          (click)="login()"
-          class="waves-effect waves-light btn"
-          *ngIf="!authService.isLoggedIn"
-          >Se connecter</a
-        >
-        <a (click)="logout()" *ngIf="authService.isLoggedIn">Se déconnecter</a>
       </div>
     </div>
   </div>

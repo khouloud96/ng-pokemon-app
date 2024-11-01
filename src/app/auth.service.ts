@@ -5,8 +5,8 @@ import { delay, Observable, of, tap } from "rxjs";
   providedIn: "root",
 })
 export class AuthService {
-  isLoggedIn: boolean = false;
-  redirectUrl: string;
+  isLoggedIn: boolean = false; // L'utilisateur est-il connecté ?
+  redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
 
   login(name: string, password: string): Observable<boolean> {
     let isLoggedIn = name === "pikachu" && password === "pikachu";

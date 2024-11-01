@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.authService = this.auth;
   }
 
+  // Informe l'utilisateur sur son authentfication.
   setMessage() {
     if (this.auth.isLoggedIn) {
       this.message = "Vous êtes connecté";
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // Connecte l'utilisateur auprès du Guard
   login() {
     this.message = "Tentative de connexion en cours ...";
     this.auth
@@ -46,8 +48,9 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  // Déconnecte l'utilisateur
   logout() {
     this.auth.logout();
-    this.message = "";
+    this.setMessage();
   }
 }
